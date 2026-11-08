@@ -36,7 +36,8 @@ Every task on a top model eats your usage limit, even renaming a file. `/handle-
 
 - Haiku wrong after one retry? That piece moves up to Sonnet automatically.
 - Opus never runs silently. You get a plain question and must say yes.
-- You get a short report at the end: status, result, evidence, which model did what.
+- Every delegation is announced live: `-> [HAIKU] creating folders`, `<- [HAIKU] done`. You always see which model does what.
+- You get a short report at the end: status, result, evidence, a line-by-line model log.
 
 ## Install
 

@@ -4,7 +4,7 @@ description: Complete a task end to end using cheap models for easy work and str
 license: MIT
 metadata:
   author: adiiiii13
-  version: "2.0.0"
+  version: "2.1.0"
 ---
 
 # /handle-boss
@@ -42,6 +42,22 @@ Give each subagent a self-contained brief: goal, files, spec, done-when. It know
 - Haiku: run the app and tests, report errors
 - Sonnet fixes errors. Repeated failures -> ask permission for Opus
 
+## Announce every delegation (always)
+
+The user must always see which model is doing what. Before EVERY subagent call, print one line:
+
+```
+-> [HAIKU] creating project folders and boilerplate files
+-> [SONNET] designing the API routes and data model
+-> [OPUS - approved by you] fixing the auth bug Sonnet failed on twice
+```
+
+Format: `-> [MODEL] <exact job in plain words>`. One line per subagent, never batched, never skipped, even for tiny jobs.
+
+After EVERY subagent returns, print one line: `<- [MODEL] done: <what it did, one line>` (or `failed: <why>`).
+
+Keep a running log. In the final report, list every step line by line (see below). Work you do yourself in the main session is labelled `[MAIN]`.
+
 ## Escalation to Opus (permission gate)
 
 Only when Sonnet failed or crashed 2+ real attempts on the same problem. Then STOP and tell the user in plain words:
@@ -64,6 +80,10 @@ Haiku wrong after one retry -> move that piece up to Sonnet (no permission neede
 Status: Done | Partly done | Blocked
 Result: <what was built, 1-2 lines>
 Evidence: <how to run it, test output, file paths>
-Models used: Haiku for X, Sonnet for Y, Opus: no/yes (approved)
+Model log (line by line):
+  1. [SONNET] <job> - done
+  2. [HAIKU]  <job> - done
+  3. [SONNET] <job> - failed, retried
+  4. [OPUS, approved] <job> - done   (omit if unused; write "Opus: not used")
 Needs from you: <decision or nothing>
 ```

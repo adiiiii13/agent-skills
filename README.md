@@ -8,7 +8,7 @@
 ![Skill format](https://img.shields.io/badge/format-SKILL.md-7c5cff?style=for-the-badge)
 ![Works with](https://img.shields.io/badge/works%20with-Claude%20Code%20·%20Codex%20·%20OpenCode-2dd4bf?style=for-the-badge)
 
-**Two skills. One goal: finish the work, burn fewer tokens.**
+**Three skills. One goal: finish the work, burn fewer tokens.**
 
 </div>
 
@@ -16,6 +16,7 @@
 |-------|---------|--------------|
 | [`handle-boss`](#handle-boss) | `/handle-boss <task>` | Team of agents: Haiku for easy work, Sonnet for hard work, Opus only with your yes |
 | [`token-saver`](#token-saver) | `/token-saver [lite\|full\|ultra]` | Terse output, tiny subagent reports, smaller reads |
+| [`boss-ultra`](#boss-ultra) | `/boss-ultra <task>` | **Both in one**: handle-boss team + token-saver ultra |
 
 ---
 
@@ -79,6 +80,35 @@ Small samples, honest caveats, and how to reproduce: [docs/COMPARISON.md](docs/C
 
 ---
 
+## boss-ultra
+
+<img src="assets/boss-ultra-banner.svg" alt="boss-ultra" width="100%"/>
+
+Pick this one when you want everything on. One command runs the full agent team **and** ultra-terse output, with no other skill installed.
+
+```text
+/boss-ultra build a website with a backend
+```
+
+| Part | From |
+|------|------|
+| Haiku basic, Sonnet hard, Opus only with your yes | handle-boss |
+| Live `-> [MODEL] job` lines and a line-by-line model log | handle-boss |
+| Ultra output, 8-line subagent replies, line-range reads | token-saver |
+| Full sentences for Opus questions and security warnings | both |
+
+<img src="assets/compare-boss-ultra.svg" alt="boss-ultra size" width="100%"/>
+
+Which one to use:
+
+| You want | Use |
+|----------|-----|
+| Agent team, normal chat style | `handle-boss` |
+| Terse output only, no agent team | `token-saver` |
+| Team plus the leanest output, smallest skill file | `boss-ultra` |
+
+---
+
 ## Install
 
 ```bash
@@ -88,7 +118,7 @@ npx skills add adiiiii13/agent-skills
 One skill:
 
 ```bash
-npx skills add adiiiii13/agent-skills --skill token-saver
+npx skills add adiiiii13/agent-skills --skill boss-ultra
 ```
 
 For one agent, user-wide:
@@ -109,6 +139,7 @@ Plain `SKILL.md` using the open [Agent Skills](https://github.com/agentskills/ag
 ```
 skills/handle-boss/SKILL.md    team of agents
 skills/token-saver/SKILL.md    terse mode
+skills/boss-ultra/SKILL.md     both in one
 docs/COMPARISON.md             measured comparison
 assets/                        banners, charts, animated demo
 ```

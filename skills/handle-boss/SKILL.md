@@ -4,12 +4,14 @@ description: Complete a task end to end using cheap models for easy work and str
 license: MIT
 metadata:
   author: adiiiii13
-  version: "2.1.0"
+  version: "2.2.0"
 ---
 
 # /handle-boss
 
 Run the user's task as a team of agents. Cheapest model that can do each piece. You decide the routing yourself, without asking, except for Opus.
+
+Main goal: spend as few tokens as possible without losing correctness.
 
 ## Model tiers
 
@@ -42,6 +44,35 @@ Give each subagent a self-contained brief: goal, files, spec, done-when. It know
 - Haiku: run the app and tests, report errors
 - Sonnet fixes errors. Repeated failures -> ask permission for Opus
 
+## Token mode (caveman style, always on)
+
+Goal: cut output and context tokens. Same technical content, no fluff. Inspired by the open-source caveman skill; works without it.
+
+**Your own messages**
+- Drop articles, filler (just, really, basically), pleasantries, hedging, restating the question.
+- Fragments OK. Short words. Pattern: `thing + action + reason. next step.`
+- Keep exact: code, commands, file paths, error text, numbers.
+- No recap of what the user just saw. No "I will now...". The announce lines below already say it.
+
+**Every subagent brief must end with this footer (paste verbatim):**
+```
+Reply format: caveman terse. Max 8 lines. No greeting, no recap of the task, no explanation of obvious steps.
+Report only: files changed (paths), result, errors (exact text). Do not paste whole files or long logs; quote the 5 relevant lines.
+```
+
+**Cheaper context**
+- Brief = goal, file paths, spec, done-when. Never paste a whole file when a path works.
+- Pass the Sonnet spec to Haiku as a short bullet list, not prose.
+- Tell subagents to read only the line ranges they need and to filter command output (`tail`, `grep`).
+- Do not re-read files a subagent just wrote; check with a diff, test run, or `grep`.
+- One subagent per step. Do not spawn a subagent for a job you can do in one tool call.
+
+**Clear mode (drop the terse style for these only)**
+- The Opus permission question
+- Security warnings and irreversible actions (delete, push, deploy, send)
+- Anything the user asks you to explain
+Then go back to terse.
+
 ## Announce every delegation (always)
 
 The user must always see which model is doing what. Before EVERY subagent call, print one line:
@@ -56,7 +87,7 @@ Format: `-> [MODEL] <exact job in plain words>`. One line per subagent, never ba
 
 After EVERY subagent returns, print one line: `<- [MODEL] done: <what it did, one line>` (or `failed: <why>`).
 
-Keep a running log. In the final report, list every step line by line (see below). Work you do yourself in the main session is labelled `[MAIN]`.
+Announce lines are the only progress narration. Keep them short. Keep a running log. In the final report, list every step line by line (see below). Work you do yourself in the main session is labelled `[MAIN]`.
 
 ## Escalation to Opus (permission gate)
 

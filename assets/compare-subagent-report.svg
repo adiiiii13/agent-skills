@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="1000" height="400">
+  <style>
+    .bar{transform-origin:left center;transform:scaleX(0);animation:grow 1.2s ease-out forwards}
+    .b2{animation-delay:.35s}
+    @keyframes grow{to{transform:scaleX(1)}}
+  </style>
+  <rect width="1000" height="400" rx="20" fill="#0f172a"/>
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
+    <text x="500" y="46" text-anchor="middle" font-size="24" font-weight="700" fill="#f1f5f9">Subagent report length: same task, same model (Haiku)</text>
+    <text x="500" y="74" text-anchor="middle" font-size="15" fill="#94a3b8">Task: review a 46-line Python file. Words that came back into the main context.</text>
+
+    <text x="40" y="150" font-size="18" fill="#cbd5e1">No footer</text>
+    <rect x="170" y="125" width="700" height="38" rx="8" fill="#334155"/>
+    <rect class="bar" x="170" y="125" width="700" height="38" rx="8" fill="#94a3b8"/>
+    <text x="880" y="151" font-size="18" font-weight="700" fill="#f1f5f9">479</text>
+
+    <text x="40" y="226" font-size="18" fill="#5eead4" font-weight="700">token-saver</text>
+    <rect x="170" y="201" width="700" height="38" rx="8" fill="#334155"/>
+    <rect class="bar b2" x="170" y="201" width="174" height="38" rx="8" fill="#2dd4bf"/>
+    <text x="354" y="227" font-size="18" font-weight="700" fill="#5eead4">119  (-75%)</text>
+
+    <rect x="40" y="272" width="920" height="96" rx="12" fill="#1e293b" stroke="#f59e0b"/>
+    <text x="60" y="300" font-size="16" font-weight="700" fill="#fbbf24">Honest caveat</text>
+    <text x="60" y="326" font-size="15" fill="#e2e8f0">One run each, not a benchmark. The short report found 3 of the 8 issues the long one listed (the top one was in both).</text>
+    <text x="60" y="350" font-size="15" fill="#e2e8f0">Shorter reports can drop minor findings. Ask for "full detail" when you need every one.</text>
+  </g>
+</svg>

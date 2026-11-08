@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 340" width="1000" height="340">
+  <style>
+    .bar{transform-origin:left center;transform:scaleX(0);animation:grow 1.2s ease-out forwards}
+    .b2{animation-delay:.35s}
+    @keyframes grow{to{transform:scaleX(1)}}
+  </style>
+  <rect width="1000" height="340" rx="20" fill="#0f172a"/>
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
+    <text x="500" y="46" text-anchor="middle" font-size="24" font-weight="700" fill="#f1f5f9">Skill file size (words loaded into context)</text>
+    <text x="500" y="74" text-anchor="middle" font-size="15" fill="#94a3b8">Measured with wc -w on each SKILL.md. Smaller = cheaper every time it loads.</text>
+
+    <text x="40" y="150" font-size="18" fill="#cbd5e1">caveman</text>
+    <rect x="170" y="125" width="700" height="38" rx="8" fill="#334155"/>
+    <rect class="bar" x="170" y="125" width="700" height="38" rx="8" fill="#94a3b8"/>
+    <text x="880" y="151" font-size="18" font-weight="700" fill="#f1f5f9">491</text>
+
+    <text x="40" y="226" font-size="18" fill="#5eead4" font-weight="700">token-saver</text>
+    <rect x="170" y="201" width="700" height="38" rx="8" fill="#334155"/>
+    <rect class="bar b2" x="170" y="201" width="452" height="38" rx="8" fill="#2dd4bf"/>
+    <text x="632" y="227" font-size="18" font-weight="700" fill="#5eead4">317  (-35%)</text>
+
+    <text x="500" y="298" text-anchor="middle" font-size="14" fill="#94a3b8">By bytes: 3,719 vs 1,923 (-48%). Caveman's full plugin has more files and features; this compares the main SKILL.md only.</text>
+  </g>
+</svg>

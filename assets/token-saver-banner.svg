@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="1200" height="360">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#042f2e"/><stop offset="0.55" stop-color="#0f3d3a"/><stop offset="1" stop-color="#1e1b4b"/></linearGradient>
+    <linearGradient id="t" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5eead4"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+    <filter id="g"><feGaussianBlur stdDeviation="20"/></filter>
+  </defs>
+  <rect width="1200" height="360" fill="url(#bg)"/>
+  <circle cx="1020" cy="60" r="140" fill="#2dd4bf" opacity="0.22" filter="url(#g)"/>
+  <circle cx="140" cy="320" r="130" fill="#a78bfa" opacity="0.22" filter="url(#g)"/>
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" text-anchor="middle">
+    <text x="600" y="160" font-size="92" font-weight="800" fill="url(#t)">token-saver</text>
+    <text x="600" y="218" font-size="30" fill="#ccfbf1">Same answer. Fewer tokens. On both sides.</text>
+    <text x="600" y="266" font-size="22" fill="#99f6e4">Terse output  ·  tiny subagent reports  ·  smaller reads  ·  317-word skill</text>
+  </g>
+</svg>

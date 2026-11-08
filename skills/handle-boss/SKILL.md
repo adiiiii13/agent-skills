@@ -4,7 +4,7 @@ description: Complete a task end to end using cheap models for easy work and str
 license: MIT
 metadata:
   author: adiiiii13
-  version: "2.2.0"
+  version: "2.2.1"
 ---
 
 # /handle-boss
@@ -44,9 +44,9 @@ Give each subagent a self-contained brief: goal, files, spec, done-when. It know
 - Haiku: run the app and tests, report errors
 - Sonnet fixes errors. Repeated failures -> ask permission for Opus
 
-## Token mode (caveman style, always on)
+## Token mode (terse, always on)
 
-Goal: cut output and context tokens. Same technical content, no fluff. Inspired by the open-source caveman skill; works without it.
+Goal: cut output and context tokens. Same technical content, no fluff.
 
 **Your own messages**
 - Drop articles, filler (just, really, basically), pleasantries, hedging, restating the question.
@@ -56,7 +56,7 @@ Goal: cut output and context tokens. Same technical content, no fluff. Inspired 
 
 **Every subagent brief must end with this footer (paste verbatim):**
 ```
-Reply format: caveman terse. Max 8 lines. No greeting, no recap of the task, no explanation of obvious steps.
+Reply format: terse. Max 8 lines. No greeting, no recap of the task, no explanation of obvious steps.
 Report only: files changed (paths), result, errors (exact text). Do not paste whole files or long logs; quote the 5 relevant lines.
 ```
 

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" width="1200" height="460">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#8b87c9"/></marker>
+  </defs>
+  <rect width="1200" height="460" rx="24" fill="#14122e"/>
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" text-anchor="middle">
+    <text x="600" y="48" font-size="26" font-weight="700" fill="#f3f1ff">How /handle-boss works</text>
+
+    <rect x="40" y="150" width="170" height="90" rx="16" fill="#262250" stroke="#8b87c9"/>
+    <text x="125" y="188" font-size="20" font-weight="700" fill="#fff">Your task</text>
+    <text x="125" y="216" font-size="15" fill="#b9b6e6">website + backend</text>
+
+    <rect x="260" y="150" width="190" height="90" rx="16" fill="#818cf8"/>
+    <text x="355" y="188" font-size="20" font-weight="700" fill="#120f3d">1. Design</text>
+    <text x="355" y="216" font-size="15" fill="#120f3d">Sonnet writes the spec</text>
+
+    <rect x="500" y="150" width="190" height="90" rx="16" fill="#2dd4bf"/>
+    <text x="595" y="188" font-size="20" font-weight="700" fill="#06302b">2. Scaffold</text>
+    <text x="595" y="216" font-size="15" fill="#06302b">Haiku builds structure</text>
+
+    <rect x="740" y="150" width="190" height="90" rx="16" fill="#818cf8"/>
+    <text x="835" y="188" font-size="20" font-weight="700" fill="#120f3d">3. Build</text>
+    <text x="835" y="216" font-size="15" fill="#120f3d">Sonnet writes logic</text>
+
+    <rect x="980" y="150" width="190" height="90" rx="16" fill="#2dd4bf"/>
+    <text x="1075" y="188" font-size="20" font-weight="700" fill="#06302b">4. Test</text>
+    <text x="1075" y="216" font-size="15" fill="#06302b">Haiku runs and reports</text>
+
+    <g stroke="#8b87c9" stroke-width="3" marker-end="url(#a)" fill="none">
+      <path d="M210 195H254"/><path d="M450 195H494"/><path d="M690 195H734"/><path d="M930 195H974"/>
+    </g>
+
+    <path d="M1075 240V300H835V250" stroke="#fb7185" stroke-width="3" stroke-dasharray="8 6" fill="none" marker-end="url(#a)"/>
+    <text x="955" y="292" font-size="15" fill="#fda4af">errors -> Sonnet fixes</text>
+
+    <rect x="330" y="350" width="540" height="76" rx="16" fill="#3b1220" stroke="#fb7185"/>
+    <text x="600" y="382" font-size="19" font-weight="700" fill="#fecdd3">Sonnet fails 2+ times?</text>
+    <text x="600" y="410" font-size="16" fill="#fda4af">It stops and asks you first. Opus 5.5 runs only after your "haan".</text>
+    <path d="M835 300V330H700V344" stroke="#fb7185" stroke-width="3" fill="none" marker-end="url(#a)"/>
+  </g>
+</svg>
